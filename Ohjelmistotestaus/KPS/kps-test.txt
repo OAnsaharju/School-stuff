@@ -1,0 +1,14 @@
+Kps ohjelman testitapaukset
+
+Harjoitukseen ohjelmoidussa kpsCheck-funktiossa testattiin kaikki
+olennainen peliin liittyvä logiikka ja sen mahdolliset lopputulokset.
+
+Ohjelma sisältää itsessään syötettävien tietojen validoinnin. 
+
+Koko ohjelman testitapauksiin olisi hyvä lisätä myös validoinnin testaaminen.
+
+Tämän hetkinen testikattavuus on mielestäni riittävä, sillä ohjelma on hyvin yksinkertainen.
+Olennaisin testattava yksikkö on mielestäni pelin logiikkaa toteuttava funktio kpsCheck, jonka 
+toimintaan perustuu koko pelaamisen onnistuminen. Mikäli peliä kehitettäisiin eteenpäin esimerkiksi tavalla jossa
+ohjelma ottaa arvot käyttäjältä jonkinlaisen graafisen käyttöliittymän avulla, olisi perusteltavaa lisätä testikattavuutta
+niin validoinnnin kuin syötekenttien toimivuudenkin osalta.

@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.2 on win32)" generated="2024-10-07T11:20:27.516006" rpa="false" schemaversion="5">
+<suite id="s1" name="Projekti" source="c:\Users\oansa\Desktop\Koulu\Ohjelmistotestaus\robotfiles\selenium\projekti.robot">
+<test id="s1-t1" name="Loop Through XPaths and Click Links" line="16">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:27.812008" level="INFO">Opening browser 'Chrome' to base url 'http://jimms.fi'.</msg>
+<arg>http://jimms.fi</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("disable-search-engine-choice-screen"); add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:27.811002" elapsed="2.476125"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-07T11:20:30.288125" elapsed="0.207001"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:31.501107" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:30.496124" elapsed="1.005554"/>
+</kw>
+<kw name="Read Xpaths From File">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-10-07T11:20:31.505667" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\oansa\Desktop\Koulu\Ohjelmistotestaus\robotfiles\selenium\project_paths.txt"&gt;C:\Users\oansa\Desktop\Koulu\Ohjelmistotestaus\robotfiles\selenium\project_paths.txt&lt;/a&gt;'.</msg>
+<msg time="2024-10-07T11:20:31.512666" level="INFO">${file_content} = /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a
+/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[2]/a
+/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[3...</msg>
+<var>${file_content}</var>
+<arg>${path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-10-07T11:20:31.505667" elapsed="0.006999"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-10-07T11:20:31.513669" level="INFO">${xpaths_list} = ['/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a', '/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[2]/a', '/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav...</msg>
+<var>${xpaths_list}</var>
+<arg>${file_content}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-10-07T11:20:31.513669" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${xpaths_list}</value>
+<status status="PASS" start="2024-10-07T11:20:31.513669" elapsed="0.001042"/>
+</return>
+<msg time="2024-10-07T11:20:31.514711" level="INFO">${xpaths} = ['/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a', '/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[2]/a', '/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav...</msg>
+<var>${xpaths}</var>
+<arg>${file_path}</arg>
+<status status="PASS" start="2024-10-07T11:20:31.503675" elapsed="0.011036"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:31.589710" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:31.516668" elapsed="0.073042"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:31.589710" level="INFO">https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:31.589710" elapsed="0.001000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:31.590710" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Tietokoneet'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:31.590710" elapsed="0.455960"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:33.050039" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:32.047670" elapsed="1.003371"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:33.058040" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:33.051041" elapsed="0.006999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:33.059040" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:33.059040" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:34.075791" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:33.059040" elapsed="1.016751"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:34.077396" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.076395" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:34.078347" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Tietokoneet</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.078347" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.079350" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:34.080349" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.080349" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.079350" elapsed="0.000999"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:34.076395" elapsed="0.003954"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a</var>
+<status status="PASS" start="2024-10-07T11:20:31.516668" elapsed="2.564681"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:34.107348" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Komponentit</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.081349" elapsed="0.025999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:34.108390" level="INFO">https://www.jimms.fi/fi/Product/Komponentit</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.108390" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:34.108390" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Komponentit'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.108390" elapsed="0.423961"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:35.537808" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:34.533346" elapsed="1.004462"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:35.544808" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Komponentit</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:35.538809" elapsed="0.007033"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:35.545842" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Komponentit</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:35.545842" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:36.547210" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:35.545842" elapsed="1.001368"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:36.547960" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Komponentit</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.547960" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:36.548959" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Komponentit</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.548959" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.548959" elapsed="0.000958"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:36.550919" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.550919" elapsed="0.000998"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.550919" elapsed="0.000998"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:36.547960" elapsed="0.003957"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[2]/a</var>
+<status status="PASS" start="2024-10-07T11:20:34.081349" elapsed="2.470568"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:36.578918" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.551917" elapsed="0.027001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:36.578918" level="INFO">https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.578918" elapsed="0.000998"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:36.579916" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Oheislaitteet'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:36.579916" elapsed="0.464004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:38.054485" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:37.044922" elapsed="1.009563"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:38.062181" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:38.055182" elapsed="0.006999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:38.064188" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:38.063184" elapsed="0.001004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:39.075105" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:38.065185" elapsed="1.009920"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:39.076679" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.075682" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:39.076679" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Oheislaitteet</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.076679" elapsed="0.000995"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.077674" elapsed="0.001003"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:39.079719" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.079719" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.078677" elapsed="0.001042"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:39.075682" elapsed="0.004037"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[3]/a</var>
+<status status="PASS" start="2024-10-07T11:20:36.551917" elapsed="2.527802"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:39.104674" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.080719" elapsed="0.024958"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:39.106678" level="INFO">https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.106678" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:39.107679" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Pelaaminen'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.107679" elapsed="0.414800"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:40.533052" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:39.523478" elapsed="1.010075"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:40.541548" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:40.533553" elapsed="0.007995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:40.541548" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:40.541548" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:41.557232" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:40.542583" elapsed="1.015645"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:41.559269" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.559269" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:41.560268" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Pelaaminen</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.560268" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.560268" elapsed="0.001002"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:41.561270" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.561270" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.561270" elapsed="0.000999"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:41.558228" elapsed="0.004041"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[4]/a</var>
+<status status="PASS" start="2024-10-07T11:20:39.080719" elapsed="2.481550"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:41.588223" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/SimRacing</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.562269" elapsed="0.025954"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:41.589224" level="INFO">https://www.jimms.fi/fi/Product/SimRacing</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.588223" elapsed="0.001001"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:41.589224" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/SimRacing'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.589224" elapsed="0.400004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:42.994373" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:41.990225" elapsed="1.004897"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:43.046142" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/SimRacing</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:42.996103" elapsed="0.050039"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:43.047143" level="INFO">Current URL: https://www.jimms.fi/fi/Product/SimRacing</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:43.046142" elapsed="0.001001"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:44.053497" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:43.047143" elapsed="1.006354"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:44.054194" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/SimRacing</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.054194" elapsed="0.000995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:44.055189" level="INFO">Expected href: https://www.jimms.fi/fi/Product/SimRacing</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.055189" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.055189" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:44.058146" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.057147" elapsed="0.000999"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.056185" elapsed="0.001961"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:44.054194" elapsed="0.003952"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[5]/a</var>
+<status status="PASS" start="2024-10-07T11:20:41.562269" elapsed="2.495877"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:44.082141" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.059144" elapsed="0.023997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:44.083141" level="INFO">https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.083141" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:44.085150" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Verkkotuotteet'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.084145" elapsed="0.366084"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:45.464023" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:44.450229" elapsed="1.013794"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:45.471020" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:45.464023" elapsed="0.007999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:45.472022" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:45.472022" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:46.474487" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:45.472022" elapsed="1.002465"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:46.475492" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.475492" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:46.476530" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Verkkotuotteet</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.475492" elapsed="0.001038"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.476530" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:46.477531" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.477531" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.477531" elapsed="0.000999"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:46.474487" elapsed="0.004043"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[6]/a</var>
+<status status="PASS" start="2024-10-07T11:20:44.058146" elapsed="2.420384"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:46.504485" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.478530" elapsed="0.026990"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:46.505520" level="INFO">https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.505520" elapsed="0.000967"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:46.506487" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Tarvikkeet'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.506487" elapsed="0.463663"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:47.979728" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:46.971152" elapsed="1.008576"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:47.988369" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:47.981372" elapsed="0.006997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:47.988369" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:47.988369" elapsed="0.001033"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:49.001680" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:47.989402" elapsed="1.013273"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:49.005673" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.004673" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:49.006673" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Tarvikkeet</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.005673" elapsed="0.001000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.007674" elapsed="0.001002"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:49.010671" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.010671" elapsed="0.001000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.009674" elapsed="0.001997"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:49.003672" elapsed="0.007999"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[7]/a</var>
+<status status="PASS" start="2024-10-07T11:20:46.478530" elapsed="2.533141"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:49.116675" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.012672" elapsed="0.104003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:49.117672" level="INFO">https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.117672" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:49.119678" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Erikoistuotteet'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.118673" elapsed="0.723004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:50.857884" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:49.842676" elapsed="1.015208"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:50.866884" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:50.857884" elapsed="0.009000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:50.867883" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:50.866884" elapsed="0.000999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:51.876938" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:50.867883" elapsed="1.010052"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:51.878968" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.877935" elapsed="0.001033"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:51.878968" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Erikoistuotteet</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.878968" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.879933" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:51.880933" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.880933" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.879933" elapsed="0.001000"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:51.877935" elapsed="0.002998"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[8]/a</var>
+<status status="PASS" start="2024-10-07T11:20:49.012672" elapsed="2.868261"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:51.911935" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.881934" elapsed="0.030001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:51.912933" level="INFO">https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.911935" elapsed="0.000998"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:51.912933" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Ohjelmistot'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:51.912933" elapsed="0.536007"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:53.460339" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:52.449933" elapsed="1.011404"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:53.468337" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:53.461337" elapsed="0.007000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:53.469337" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:53.468337" elapsed="0.001000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:54.480519" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:53.469337" elapsed="1.012125"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:54.483492" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.482452" elapsed="0.001040"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:54.483492" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Ohjelmistot</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.483492" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.484475" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:54.485448" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.485448" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.484475" elapsed="0.000973"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:54.482452" elapsed="0.002996"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[9]/a</var>
+<status status="PASS" start="2024-10-07T11:20:51.881934" elapsed="2.604513"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:54.512448" level="INFO">${expected_href} = https://www.jimms.fi/fi/Product/Palvelut</msg>
+<var>${expected_href}</var>
+<arg>xpath:${xpath}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.486447" elapsed="0.026001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:54.513449" level="INFO">https://www.jimms.fi/fi/Product/Palvelut</msg>
+<arg>${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.513449" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:54.514447" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Palvelut'</msg>
+<arg>${expected_href}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.513449" elapsed="0.404001"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:55.933449" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:54.918452" elapsed="1.014997"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-07T11:20:55.940449" level="INFO">${current_url} = https://www.jimms.fi/fi/Product/Palvelut</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-07T11:20:55.933449" elapsed="0.007000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:55.941448" level="INFO">Current URL: https://www.jimms.fi/fi/Product/Palvelut</msg>
+<arg>Current URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:55.940449" elapsed="0.000999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-07T11:20:56.954618" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-07T11:20:55.941448" elapsed="1.013170"/>
+</kw>
+<kw name="Verify Page After Click">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:56.955663" level="INFO">Verifying the current page: https://www.jimms.fi/fi/Product/Palvelut</msg>
+<arg>Verifying the current page: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:56.955663" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:56.956660" level="INFO">Expected href: https://www.jimms.fi/fi/Product/Palvelut</msg>
+<arg>Expected href: ${expected_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:56.955663" elapsed="0.000997"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-10-07T11:20:56.956660" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-07T11:20:56.957660" level="INFO">"Correct page loaded"</msg>
+<arg>"Correct page loaded"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-07T11:20:56.957660" elapsed="0.000000"/>
+</kw>
+<arg>'${current_url}' == '${expected_href}'</arg>
+<arg>Log</arg>
+<arg>"Correct page loaded"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T11:20:56.956660" elapsed="0.001000"/>
+</kw>
+<arg>${current_url}</arg>
+<arg>${expected_href}</arg>
+<status status="PASS" start="2024-10-07T11:20:56.954618" elapsed="0.003042"/>
+</kw>
+<var name="${xpath}">/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[10]/a</var>
+<status status="PASS" start="2024-10-07T11:20:54.486447" elapsed="2.472213"/>
+</iter>
+<var>${xpath}</var>
+<value>@{xpaths}</value>
+<status status="PASS" start="2024-10-07T11:20:31.515672" elapsed="25.442988"/>
+</for>
+<doc>This test reads a list of XPaths from a file and performs actions on them.</doc>
+<status status="PASS" start="2024-10-07T11:20:27.810003" elapsed="29.149616"/>
+</test>
+<status status="PASS" start="2024-10-07T11:20:27.523004" elapsed="29.438615"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Projekti">Projekti</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,3 @@
+Ping result: 192.0.66.168 15 -ms average response time 
+Ping result: 52.85.49.93 6 -ms average response time 
+Ping result: 184.84.235.26 12 -ms average response time 

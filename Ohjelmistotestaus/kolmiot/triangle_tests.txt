@@ -1,0 +1,13 @@
+Kolmiot-tehtävän test-caset
+
+Kolmioiden testaamisen pohjana toimii functio triangleCheck,
+joka ottaa parametreikseen kolmion sivujen pituuksia kokonaislukuina.
+Testitapauksia kirjoitettiin kolme.
+
+- Onko syötettyjen arvojen mukainen kolmio tasasivuinen?
+- Onko syötettyjen arvojen mukainen kolmio tasakylkinen?
+- Onko syötettyjen arvojen mukaisen kolmion kaikki sivut eri pituisia?
+
+Riittävän testikattavuuden saavuttamiseksi olisi hyvä testata lisäksi ainakin funktiolle
+syötettävien parametrien validointi, eli se, että toimiiko funktion ns. Error-handling.
+
